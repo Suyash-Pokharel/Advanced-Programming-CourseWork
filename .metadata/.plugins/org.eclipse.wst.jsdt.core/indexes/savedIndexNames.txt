@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+E:\TomCat2\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+658448448.index
+2696625854.index
+25975673.index
+1115897687.index
+1979922557.index
+1222409355.index
+1611964454.index

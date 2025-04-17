@@ -1,0 +1,34 @@
+package com.airline.util;
+
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+public class PassworsUtil {
+
+    // Set cookie
+    public static void setCookie(HttpServletResponse response, String name, String value, int maxAgeInSeconds) {
+        Cookie cookie = new Cookie(name, value);
+        cookie.setMaxAge(maxAgeInSeconds);
+        cookie.setPath("/"); // makes it accessible throughout the app
+        response.addCookie(cookie);
+    }
+
+    // Get cookie by name
+    public static String getCookieValue(HttpServletRequest request, String name) {
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (name.equals(cookie.getName())) {
+                    return cookie.getValue();
+                }
+            }
+        }
+        return null;
+    }
+
+    // Delete cookie
+    public static void deleteCookie(HttpServletResponse response, String name) {
+        setCookie(response, name, "", 0);
+    }
+}
